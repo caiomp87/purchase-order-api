@@ -3,7 +3,7 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 @Entity()
 export class Product {
   @PrimaryGeneratedColumn('increment')
-  id: string;
+  id: number;
 
   @Column()
   name: string;
@@ -11,9 +11,9 @@ export class Product {
   @Column({ type: 'text' })
   description: string;
 
-  @Column()
+  @Column({ type: 'decimal', precision: 10, scale: 2 })
   price: number;
 
-  @Column()
+  @Column({ name: 'image_url' })
   imageUrl: string;
 }
